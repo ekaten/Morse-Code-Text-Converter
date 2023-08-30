@@ -87,6 +87,15 @@ def decode(input_text):
     print(decoded_word)
 
 
+def need_another_encoding():
+    response = ""
+    if response != "Y" or response != "N":
+        response = input("\nNeed More Encoding/Decoding? Y/N: ")
+        if response == "N":
+            return False
+        elif response == "Y":
+            print("\n\n/////////// NEW ENCODING ///////////")
+            return True
 
 
 
@@ -109,19 +118,9 @@ while need_encoding:
         break
 
 
+    # Does user want to do another decoding/encoding session?
+    need_encoding = need_another_encoding()
 
-
-
-    # Does user need another decoding/encoding?
-    response = ""
-    if response != "Y" or response != "N":
-        response = input("\nNeed More Encoding/Decoding? Y/N: ")
-        if response == "N":
-            need_encoding = False
-        elif response == "Y":
-            clear()
-            print("\n\n/////////// NEW ENCODING ///////////")
-            need_encoding = True
 
 
 print("\n//////////// Good Bye! /////////////")
