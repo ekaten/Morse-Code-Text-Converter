@@ -1,4 +1,3 @@
-from replit import clear
 MORSE_CODE = {
     "a": '.-',
     "b": '-...',
@@ -66,8 +65,8 @@ def text_accepted(text):
         return True
 
 
-def is_morse(input_text):
-    for char in input_text:
+def is_morse(text):
+    for char in text:
         if char in [".", "-", "/", " "]:
             it_is_morse = True
         else:
@@ -75,9 +74,9 @@ def is_morse(input_text):
         return it_is_morse
 
 
-def decode(input_text):
+def decode(text):
     decoded_word = ""
-    list_of_chars = input_text.split(" ")
+    list_of_chars = text.split(" ")
     print(list_of_chars)
     for char in list_of_chars:
         for sym in MORSE_CODE:
@@ -88,15 +87,14 @@ def decode(input_text):
 
 
 def need_another_encoding():
-    response = ""
-    if response != "Y" or response != "N":
-        response = input("\nNeed More Encoding/Decoding? Y/N: ")
-        if response == "N":
+    response_received = False
+    while not response_received:
+        response = input("\nNeed More Encoding/Decoding? Y/N: ").lower()
+        if response == "n":
             return False
-        elif response == "Y":
+        elif response == "y":
             print("\n\n/////////// NEW ENCODING ///////////")
             return True
-
 
 
 # set while variable
@@ -117,13 +115,7 @@ while need_encoding:
     else:
         break
 
-
     # Does user want to do another decoding/encoding session?
     need_encoding = need_another_encoding()
 
-
-
 print("\n//////////// Good Bye! /////////////")
-
-
-
