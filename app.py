@@ -77,13 +77,13 @@ def is_morse(text):
 def decode(text):
     decoded_word = ""
     list_of_chars = text.split(" ")
-    print(list_of_chars)
     for char in list_of_chars:
         for sym in MORSE_CODE:
             if MORSE_CODE[sym] == char:
                 decoded_char = sym
                 decoded_word += decoded_char
-    print(decoded_word)
+    # Print the output string
+    print(f"\nOUTPUT: \n{decoded_word}")
 
 
 def need_another_encoding():
@@ -103,7 +103,7 @@ need_encoding = True
 # While encoding is needed, request input
 while need_encoding:
     print("---Type @ to quit---")
-    input_text = input("\nINPUT: ")
+    input_text = input("\nINPUT:\n")
 
     # Check if user wants to quit or encode/decode
     if text_accepted(input_text):
